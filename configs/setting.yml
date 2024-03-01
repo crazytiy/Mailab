@@ -1,0 +1,43 @@
+############## general parameters ####################
+device : !todevice ['cuda:0']
+
+############## datasets path setting ################# 
+root_path : './'
+data_path : './data'
+result_path : './result'
+
+############## train and valid parameters ############    
+seed : 2022
+num_epochs : 100
+in_channels : 70
+out_channels : 5
+input_length : 2
+target_length : 20
+first_channel : 64
+bilinear : False
+features : [32,64,128,256]
+pixelshuffle : True
+batch_size : 1
+num_workers : 1
+pin_memory : True
+clip : False
+
+
+############## optimizer parameters ##################
+optim : 'adam' 
+sgd:
+  momentum : 0.9
+adam:
+  weight_decay : 0.00001
+
+############## scheduler parameters ################## 
+learning_rate : 0.0001
+lr_scheduler_gamma : 0.98
+scheduler : 'reducelr'
+reducelr:
+  mode : 'min'
+  factor : 0.5
+  patience : 5
+  min_lr : 0
+
+
